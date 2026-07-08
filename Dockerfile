@@ -1,4 +1,4 @@
-FROM debian:bookworm-slim AS builder
+FROM debian:13-slim AS builder
 WORKDIR /usr/src
 
 RUN apt-get update \
@@ -55,7 +55,7 @@ RUN curl -s "https://nginx.org/download/$(curl -s http://nginx.org/en/download.h
     make && make install
 
 
-FROM debian:bookworm-slim
+FROM debian:13-slim
 
 COPY --from=builder /usr/sbin/nginx /usr/sbin/nginx
 COPY --from=builder /etc/nginx /etc/nginx
