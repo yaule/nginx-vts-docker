@@ -62,7 +62,7 @@ COPY --from=builder /var/log/nginx /var/log/nginx
 RUN useradd nginx && mkdir -p /usr/local/nginx/client_body_temp && \
     chown -R nginx:nginx /usr/local/nginx/ && \
     apt update && \
-    apt install -yqq libpcre3 libssl3 geoip-bin && \
+    apt install -yqq libpcre2-dev libssl3 geoip-bin && \
     rm -rf /var/lib/apt/lists/* && \
     apt clean all
 
