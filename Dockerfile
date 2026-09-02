@@ -7,12 +7,11 @@ RUN apt-get update \
                 quilt lsb-release build-essential libxml2-utils xsltproc \
                 equivs git g++ libparse-recdescent-perl \
     build-essential \
-    libpcre3-dev \
+    libpcre2-dev \
     zlib1g-dev \
     libssl-dev \
     wget \
     curl \
-    libpcre3 \
     zlib1g \
     libgeoip-dev libcurl4-openssl-dev libjansson-dev && \
     rm -rf /var/lib/apt/lists/*
