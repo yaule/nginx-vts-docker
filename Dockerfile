@@ -19,6 +19,7 @@ RUN apt-get update \
 RUN curl -s "https://nginx.org/download/$(curl -s http://nginx.org/en/download.html | grep -oE '/nginx-[0-9].*.tar.gz' | sed 's/ /\n/g' | grep -oE 'nginx-.*.tar.gz' | uniq | sed -n '2p')" | tar -xz && \
     cd nginx-* && \
     git clone https://github.com/vozlt/nginx-module-vts.git && \
+    cd nginx-module-vts && git checkout $(git describe --tags --abbrev=0) && cd .. && \
     ./configure --user=nginx  --group=nginx \
     --sbin-path=/usr/sbin/nginx \
     --conf-path=/etc/nginx/nginx.conf \
